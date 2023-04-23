@@ -1,0 +1,17 @@
+[Unit]
+Description=webssh-Daemon
+After=network.target
+StartLimitIntervalSec=500
+StartLimitBurst=0
+
+[Service]
+User=root
+Group=root
+WorkingDirectory=/root/web-openssh
+Type=simple
+ExecStart=/root/web-openssh/webssh.sh
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
