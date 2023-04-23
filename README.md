@@ -86,4 +86,10 @@ docker run -it --rm --net=host -e LISTEN="8443 ssl" ghostplant/webshell
 ```sh
 x-www-browser "https://localhost:8443/"
 ```
+--------------------------------------------------------
+### deploy webssh as background service [Ubuntu]
+
+```sh
+bash webssh_service_deploy.sh
+```
 
