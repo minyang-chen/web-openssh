@@ -24,8 +24,8 @@ if [ "$USE_SSL" != "" ] && grep "\%SSL_CONF\%" ${TMP_CONF} >/dev/null; then
 		# ACCOUNT=${ACCOUNT:-admin:badmin}
 		USER=$(echo "${ACCOUNT}" | awk -F\: '{ print $1 }')
 		PASS=$(echo "${ACCOUNT}" | awk -F\: '{ for(i=2; i<NF; ++i) { printf $i ":" } printf $NF }')
-		echo "Generating new account .."
-		echo "${USER}":$(openssl passwd -crypt "${PASS}") > ./ssl/auth.basic
+		echo "generate a password without a prompt by"
+		echo "${USER}":$(echo "${PASS}" | openssl passwd -apr1 -stdin) > ./ssl/auth.basic
 	fi
 	if [ -e ./ssl/auth.basic ]; then
 		SSL_AUTH_FLAG=" auth_basic realm; auth_basic_user_file .\/ssl\/auth.basic;";
