@@ -43,10 +43,13 @@ docker run -it -d --name my_web_ssh -v ${HOME}/alpine_home:/root --restart alway
 --------------------------------------------------------
 
 ### Compile Source Code on Ubuntu native
+```
+add src entry to a/etc/apt/source.list
+deb-src http://ca.archive.ubuntu.com/ubuntu/ jammy main restricted
 
 ```sh
 sudo apt build-dep nginx-core
-
+```
 git clone https://github.com/ghostplant/web-openssh
 cd web-openssh/
 ./wsh-make_native
